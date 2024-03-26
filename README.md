@@ -30,13 +30,13 @@ When you're using ESM in Fastify, you can import modules using the `import` stat
 
     ```
     {
- "type": "module"
-}
+    "type": "module"
+    }
     ```
 
 **Install fastify**:
 
-    ```
+    `
     npm run start
-    ```
+    `
 

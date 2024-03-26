@@ -11,13 +11,13 @@ To get started with Fastify, follow these steps:
 
 **Initialize npm project**:
 
-    ```bash
+    ```
     npm init
     ```
 
 **Install fastify**:
 
-    ```bash
+    ```
     npm i -s fastify
     ```
 ## What is ESM?
@@ -28,7 +28,7 @@ When you're using ESM in Fastify, you can import modules using the `import` stat
 
 **If you are using ECMAScript Modules (ESM) in your project, be sure to include**:
 
-    ```bash
+    ```
     {
  "type": "module"
 }
@@ -36,7 +36,7 @@ When you're using ESM in Fastify, you can import modules using the `import` stat
 
 **Install fastify**:
 
-    ```bash
+    ```
     npm run start
     ```
 

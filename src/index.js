@@ -1,9 +1,20 @@
 import fastify from 'fastify';
+import fastifyMysql from '@fastify/mysql';
 import userController from './user-controller.js';
 
 const app = fastify({
     logger: true
 });
+// database access
+
+app.register(fastifyMysql, {
+    host:'localhost',
+    user: 'root',
+    password: 'admin',
+    database:'mydatabase',
+    promise: true,
+});
+
 
 // app.get('/', (request, reply) => {
 //     reply.send({ message: 'Hello, world!' });

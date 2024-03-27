@@ -6,19 +6,40 @@ const responseSchema = {
             },
         }
     }
-
+};
+const postSchema = {
+    body:{
+        properties: {
+            user:{ type: 'object'}
+        },
+        required: ['user']
+    },
+    response: {
+        200: {
+            status: {type: 'number' },
+        }
+    }
 };
 const userController = (fastify, options, done) => {
-    fastify.get('/', {schema: responseSchema},(req, reply) => {
-        return {
-            message: 'Hello World!!'
-        };
+    fastify.get('/users', async(req, reply) => {
+        try{
+            const [user] = await fastify.mysql.execute('select * from user;');
+            console.log(user);
+            return {user};
+        }catch (error){
+            return error;
+        }
+        
     });
 
-    fastify.get('/hello/:name', {},(req, reply) => {
-        return {
-            message: `Hello ${req.parameter.name}!`
-        };
+    fastify.post('/create', {schema: postSchema},async(req, reply) => {
+        const {user} = req.body;
+        try{
+            await fastify.mysql.execute('INSERT INTO user (name, email) VALUES(?,?)', [user.name, user.email]);
+            return {status: 200};
+        }catch (error){
+            return error;
+        }
     });
     done();
 };

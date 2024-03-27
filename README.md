@@ -40,3 +40,25 @@ When you're using ESM in Fastify, you can import modules using the `import` stat
     npm run start
     
 
+**Install mysql using dokcer**:
+    
+    docker pull mysql
+    docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=admin -d mysql:latest
+
+**Execute a bash shell within the some-mysql container**:
+
+    docker exec -it mysql bash
+
+
+**Connect to the MySQL server**:
+  
+    mysql -u root -p
+
+**Create a database and table**:
+  
+    CREATE DATABASE mydatabase;
+    USE mydatabase;
+    CREATE TABLE user(user_id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(50) NOT NULL, email VARCHAR(255) NOT NULL);
+    INSERT INTO user (name,email) VALUES ('shrooq','sh@gmail.com'),('Saleh', 's@gmail.com');
+
+    

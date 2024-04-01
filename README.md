@@ -62,3 +62,13 @@ When you're using ESM in Fastify, you can import modules using the `import` stat
     INSERT INTO user (name,email) VALUES ('shrooq','sh@gmail.com'),('Saleh', 's@gmail.com');
 
     
+## SingleStore 
+a database to transact, analyze and contextualize data in real time.
+
+**Install SingleStore using dokcer**:
+    
+    docker run -d --name singlestoredb-dev -e SINGLESTORE_LICENSE="YOUR SINGLESTORE LICENSE" -e ROOT_PASSWORD="YOUR SINGLESTORE ROOT PASSWORD" \-p 3306:3306 -p 8080:8080 -p 9000:9000 ghcr.io/singlestore-labs/singlestoredb-dev:latest
+
+SingleStore Studio is a convenient way to manage SingleStoreDB and run queries via a browser based UI. Studio runs by default on port 8080 in the container. Access studio at [http://localhost:8080](http://localhost:8080/).
+
+When opening Studio you will see a login screen. Use the username `root` and the `ROOT_PASSWORD` you set when starting the container.
